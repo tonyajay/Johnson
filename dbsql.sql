@@ -10,7 +10,7 @@ select distinct a.partno,a.partname,a.weight from parts a,supply b,supplier c wh
 select partno,partname,color from parts where weight > (select weight from parts where partname='tape  drive' and color='black')
 select a.partno,a.partname,a.color from parts a,parts b where a.weight > b.weight and b.partname='tape  drive' and b.color='black' 
 select avg(salary) from employee where empmanager=199
-select supname,count(distinct part) as no_of_parts from supplier join supply on supplier.supno=supply.suppliers group by supname
+select supname,count(distinct itname) as no_of_items from supplier join item on supplier.supno=item.itsupplier group by supname
 select sum(a.weight) as total_weight from parts a,supply b,supplier c,city d where a.partno=b.part and b.suppliers=c.supno and c.supcity=d.cityname and d.citystate='MASS' group by b.suppliers
 insert into supplier values (1015,'Datatec','Denver')
 select a.empname,a.empno,a.salary from employee a,dept b where a.empno=b.deptmanager and b.deptstore=8
